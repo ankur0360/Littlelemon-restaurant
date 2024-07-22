@@ -25,9 +25,26 @@ class Menu(models.Model):
       return self.name
 
 class Feedback(models.Model):
+   RATINGS = [
+        (1, 'Poor'),
+        (2, 'Fair'),
+        (3, 'Good'),
+        (4, 'Very Good'),
+        (5, 'Excellent'),
+    ]
+   rating = models.IntegerField(choices=RATINGS, null=True)
    Give_a_Valueable_feedback = models.CharField(max_length=1000, default='')
 
    def __str__(self) -> str:
       return self.Give_a_Valueable_feedback
+   
+class MenuItem(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+
 
   

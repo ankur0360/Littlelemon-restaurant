@@ -2,6 +2,18 @@
 {% load static %}
 
 {% block content %}
+<style>
+  article {
+      width: 300px;
+      padding: 20px;
+      /* background-color: #fff; */
+      transition: transform 0.3s ease;
+  }
+
+  article:hover {
+      transform: scale(1.05);
+  }
+</style>
 <section>
     <article id="hero">
       <h1 class="heading_shadow">SPECIAL OFFER</h1>
@@ -14,7 +26,10 @@
   <section>
     <article>
       <h2>Our New Menu</h2>
-      <img src="{% static 'img/Grill.jpg' %}">
+      <img class="mySlides" src="{% static 'img/Grill.jpg' %}">
+      <img class="mySlides" src="{% static 'img/pasta.jpg' %}">
+      <img class="mySlides" src="{% static 'img/salad.jpg' %}">
+      <img class="mySlides" src="{% static 'img/lemon dessert B.jpg' %}">
       <p>
         Our menu consists of 12-15 seasonal items based on Italian, Greek, and Turkish culture.
       </p>
@@ -45,4 +60,20 @@
       </ul>
     </article>
   </section>
+  <script>
+      var slideIndex = 0;
+      carousel();
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 2000);
+      }
+  </script>
 {% endblock %}
