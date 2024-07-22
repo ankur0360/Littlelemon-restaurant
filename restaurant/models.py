@@ -36,7 +36,7 @@ class Feedback(models.Model):
    Give_a_Valueable_feedback = models.CharField(max_length=1000, default='')
 
    def __str__(self) -> str:
-      return self.Give_a_Valueable_feedback
+      return self.Give_a_Valueable_feedback + " : " + str(self.rating)
    
 class MenuItem(models.Model):
     name = models.CharField(max_length=100)
