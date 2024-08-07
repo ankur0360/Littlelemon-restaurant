@@ -14,10 +14,12 @@
           {{feed.as_p}}
           <input type="submit" id="button">
         </form>
-        <p>Average Rating: {{ average_rating }}</p>
+        <p style="color: green; font-size: 3rem;">Average Rating: {{ average_rating }}</p>
+        <i style="font-size: 1.8rem;">Customer reviews : </i>
         <ul>
             {% for feedback in feedbacks %}
-                <li>{{ feedback.Give_a_Valueable_feedback }} - Rating: {{ feedback.get_rating_display }}</li>
+                <li>&#x2022; {{ feedback.Give_a_Valueable_feedback }} - Rating: {{ feedback.get_rating_display }}</li>
+                <br>
             {% endfor %}
         </ul>
         <p style="text-align: justify;">Welcome, esteemed diners and culinary enthusiasts! At Little Lemon Restaurant, we hold your experience as our highest priority. Your thoughts and feedback provide us with invaluable insights that guide us on our mission to deliver exceptional dining moments.</p>
